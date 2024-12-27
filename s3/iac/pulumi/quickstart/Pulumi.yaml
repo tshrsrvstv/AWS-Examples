@@ -1,0 +1,7 @@
+name: pulumi-iac-app
+description: Pulumi App to demo Java Stack with Simple S3 bucket deployed in AWS
+runtime: java
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-java

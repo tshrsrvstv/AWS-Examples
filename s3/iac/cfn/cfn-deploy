@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "==Cloud Formation Install Script"
+
+aws cloudformation deploy --profile cvent-sandbox --template-file ./template.yaml --stack-name w502023-cfn-deploy-stack --region us-east-1

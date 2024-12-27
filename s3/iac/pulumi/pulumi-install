@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+brew install pulumi/tap/pulumi
+
+# POST install we have to set AWS_PROFILE as environment variable for using sandbox account

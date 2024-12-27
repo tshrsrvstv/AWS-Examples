@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+echo "==List Objects"
+
+# Check for profile name
+if [ -z "$1" ]; then
+    echo "There needs to be a oktaws cvent profile name eg. cvent-sandbox"
+    exit 1
+fi

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+echo "==Delete Objects"
+
+set -e 
+
+# Check for profile name
+if [ -z "$1" ]; then
+    echo "There needs to be a oktaws cvent profile name eg. cvent-sandbox"
+    exit 1
+fi
+
+PROFILE_NAME=$1
+
+# Check for bucket name
+if [ -z "$2" ]; then
+    echo "There needs to be a bucket name"
+    exit 1
+fi
+
+BUCKET_NAME=$2
+
+aws s3api list-objects-v2 --bucket $BUCKET_NAME --profile $PROFILE_NAME --query "Contents[].Key" --output json | jq -n '{Objects: [inputs | .[] | {Key: .}]}' > /tmp/objects.json
+# Delete objects
+aws s3api delete-objects --bucket $BUCKET_NAME --profile $PROFILE_NAME --delete file:///tmp/objects.json

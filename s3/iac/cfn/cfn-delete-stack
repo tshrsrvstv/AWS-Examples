@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "==Delete CFN Stack"
+
+aws cloudformation delete-stack --stack-name  w502023-cfn-deploy-stack --profile cvent-sandbox --region us-east-1

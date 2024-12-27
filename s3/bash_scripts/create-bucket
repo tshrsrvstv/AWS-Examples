@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+echo "==Create Bucket"
+
+# Check for profile name
+if [ -z "$1" ]; then
+    echo "There needs to be a oktaws cvent profile name eg. cvent-sandbox"
+    exit 1
+fi
+
+PROFILE_NAME=$1
+
+# Check for bucket name
+if [ -z "$2" ]; then
+    echo "There needs to be a bucket name eg. ./bucket my-bucket-name"
+    exit 1
+fi
+
+BUCKET_NAME=$2
+
+aws s3api create-bucket --bucket $BUCKET_NAME --profile $PROFILE_NAME --query Location --output text

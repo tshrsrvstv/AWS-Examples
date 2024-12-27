@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+mkdir quickstart && cd quickstart
+
+# Before the next step run pulumi login to authenticate with pulumi using browser
+
+pulumi new aws-java
+
